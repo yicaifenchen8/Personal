@@ -58,7 +58,7 @@ display: flex;align-items: center;z-index: 1000;">
 </section>
 
 <!--video-->
-<div id="video" class="blocks" style="margin-top: 100px;">
+<div id="video" class="blocks" style="margin-top: 100px;overflow:auto;width: 100%;">
 </div>
 <script src="js/jquery-1.11.0.min.js" type="text/javascript"></script>
 <script type="text/javascript">
@@ -88,7 +88,7 @@ display: flex;align-items: center;z-index: 1000;">
     </p>
 </section>
 
-<section id="photography">
+<section id="photography" style="overflow: auto">
     <p>
         旅行，让我爱上摄影；<br>摄影，让我更爱旅行。
     </p>
@@ -107,7 +107,7 @@ display: flex;align-items: center;z-index: 1000;">
     <p>
         我从小就对新科技有着无尽的好奇心，<br/>因此一直在通过互联网自学编程。
     </p>
-    <div id="nodes" onscroll="node.didScroll()">
+    <div id="nodes">
         <img id="node-scroll-button" onclick="node.increment()"/>
         <svg xmlns="http://www.w3.org/2000/svg" width="1920" height="800">
             <g stroke="#979797" fill="none">

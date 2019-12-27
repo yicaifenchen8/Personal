@@ -44,10 +44,9 @@ body .blocks .block {
   transition: transform .3s, -webkit-transform .3s;
 }
 body .blocks .block img {
-  width: auto;
   width: 200px;
   height: 200px;
-    object-fit: cover;
+  object-fit: cover;
 }
 body .blocks .block .overlay {
   position: fixed;
