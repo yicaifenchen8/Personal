@@ -21,15 +21,16 @@
 <body>
 
 <!--music-->
-<div id="music_p" style="position: fixed;top: 100px;left: 0;z-index: 1001;">
+<div id="music_p" style="overflow: auto;display: flex;flex-direction: column;position: fixed;top: 100px;left: 0;z-index: 1001;height: 100%">
     <div style="padding: 5px;font-weight: bolder">MUSIC</div>
-    <div id="music" style="max-width: 400px;writing-mode:vertical-lr;align-self: center;display: flex;align-items: center;text-align: center;"></div>
-    <img width="50px" src="image/music.gif">
+    <div id="music" style="max-width: 400px;writing-mode:vertical-lr;align-self: center;display: flex;align-items: center;text-align: center;white-space: nowrap"></div>
+    <img width="50px" data-src="image/music.gif">
 </div>
 
 <!--tab-->
-<section style="position: fixed;top: 0px;left: 0px;font-size: 16px;padding: 20px;background:gainsboro;display: flex;align-items: center;justify-content: center;width: 100%;z-index: 1000;">
-    <div id="tab" style="align-self: center;display: flex;flex-wrap:wrap;align-items: center;justify-content: center;">
+<section id="tab_p" style="overflow: auto;position: fixed;top: 0px;left: 0px;font-size: 16px;padding: 20px;background:gainsboro;
+display: flex;align-items: center;z-index: 1000;">
+    <div id="tab" style="display: flex;white-space: nowrap;justify-content: center">
         欢迎！
     </div>
 </section>
@@ -39,7 +40,7 @@
     <header>
         <img id="avatar" alt=""
              style="border-radius: 3px;"
-             src="image/avatar.jpg"/>
+             data-src="image/avatar.jpg"/>
         <h1 id="heading" style="line-height: normal">
             笑笑<br/>
             yicaifenchen8<br/>
@@ -61,22 +62,21 @@
     <p id="traveling">
         旅行是从大自然学习的最佳方式。<br/>走遍世界，对我而言不仅仅是个梦想。
     </p>
-    <div id="globe-container">
-        <canvas id="globe"></canvas>
-    </div>
 </section>
 
 <section id="photography">
-    <p>旅行，让我爱上摄影；<br>摄影，让我更爱旅行。</p>
+    <p>
+        旅行，让我爱上摄影；<br>摄影，让我更爱旅行。
+    </p>
     <div id="group">
-        <a><img id="photo-a" src=""/></a>
-        <a><img id="photo-b" src=""/></a>
-        <a><img id="photo-c" src=""/></a>
-        <a><img id="photo-d" src=""/></a>
-        <a><img id="photo-e" src=""/></a>
-        <a><img id="photo-f" src=""/></a>
-        <a><img id="photo-g" src=""/></a>
-        <a><img id="photo-h" src=""/></a>
+        <a><img id="photo-a"/></a>
+        <a><img id="photo-b"/></a>
+        <a><img id="photo-c"/></a>
+        <a><img id="photo-d"/></a>
+        <a><img id="photo-e"/></a>
+        <a><img id="photo-f"/></a>
+        <a><img id="photo-g"/></a>
+        <a><img id="photo-h"/></a>
     </div>
 </section>
 <section id="programming">
@@ -84,7 +84,7 @@
         我从小就对新科技有着无尽的好奇心，<br/>因此一直在通过互联网自学编程。
     </p>
     <div id="nodes" onscroll="node.didScroll()">
-        <img id="node-scroll-button" src="" onclick="node.increment()"/>
+        <img id="node-scroll-button" onclick="node.increment()"/>
         <svg xmlns="http://www.w3.org/2000/svg" width="1920" height="800">
             <g stroke="#979797" fill="none">
                 <path d="M212 453l-81-88m81 88l47-88-77-55"/>
@@ -461,15 +461,15 @@
     <p id="text-dot-connecting">我不断尝试把自己的所想所爱结合在一起，创造些有意思的东西。</p>
 </section>
 <section>
-    <center><img style="max-width: 100%" src="image/favor_code.jpg"></center>
+    <center><img style="max-width: 100%" data-src="image/favor_code.jpg"></center>
 </section>
 <section>
     <footer>
         <br/>
-        <p>Designed and developed by Smile Smile.</p>
-        <p>Copyright © 2010-2019 smilesmile.com. All Rights Reserved.</p>
+        <p style="font-size: 14px !important;">Designed and developed by Smile Smile.</p>
+        <p style="font-size: 14px !important;">Copyright © 2010-2019 smilesmile.com. All Rights Reserved.</p>
     </footer>
 </section>
 </body>
-<script type="module" src="./index.js"></script>
+<script type="module" src="./index.js" async></script>
 </html>

@@ -24,7 +24,7 @@ for (let e of blogs) {
 //pic
 for (let i = 0; i < 8; i++) {
     var e = document.getElementById('photo-' + String.fromCharCode('a'.charCodeAt(0)+i))
-    e.setAttribute("src", "image/pic_" + (i + 1) + ".jpg")
+    e.setAttribute("data-src", "image/pic_" + (i + 1) + ".jpg")
 
     var a = e.parentNode
     a.setAttribute("href", "image/pic_" + (i + 1) + ".jpg")
@@ -53,3 +53,14 @@ for (let e of tabs) {
     tab.innerHTML += div
 }
 
+//load img
+var imgs = document.getElementsByTagName('img')
+for(let img of imgs){
+    let src = img.getAttribute('data-src')
+    if (!src) continue
+    let i = new Image();
+    i.src = src
+    i.onload = ()=>{
+        img.src = i.src
+    }
+}

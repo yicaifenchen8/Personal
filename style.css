@@ -95,6 +95,9 @@ section .content p,
 		"ls . h2 . .";
 	transform: translateY(-88px);
 }
+#tab_p {
+	justify-content: center
+}
 #intro header img{
     width: 200px;
     height: 200px;
@@ -135,6 +138,14 @@ section .content p,
 	background-position: right;
 }
 
+:root {
+	--margin-left:0px;
+}
+
+#tab_p {
+	width: calc(100% - var(--margin-left));
+}
+
 @media (max-width: 900px) {
 	#intro header {
 		--size:100px;
@@ -159,6 +170,9 @@ section .content p,
     }
 	#slice-right{
 	}
+	#tab_p {
+		justify-content: left;
+	}
     #music_p {
 		box-shadow: 0 20px 90px 0 rgba(0, 0, 0, .08), 0 9px 30px 0 rgba(0, 0, 0, .1);
         top:0px !important;
@@ -178,12 +192,16 @@ section .content p,
         grid-area: img;
         margin-left: calc(100vw - var(--size) - var(--margin-left) - 16px);
     }
+	* {
+		font-size: 16px !important;
+	}
+	p,h1,h2 {
+		font-size: 20px !important;
+	}
 }
 
 #content {
 	--padding: 1.25em;
-	padding-bottom: 220px;
-	margin-bottom: -220px;
 	overflow: hidden;
 }
 
@@ -208,7 +226,6 @@ section .content p,
 	flex-direction: column;
 	width: 100vw;
 	min-height: 100vh;
-	margin: 8% 0 6%;
 	justify-content: center;
 	align-items: center;
 	overflow: hidden;
@@ -230,20 +247,13 @@ section .content p,
 
 @media (max-width: 600px) {
 	#photography {
-		margin: 100px 0;
-	}
-	#photography p:lang(en) {
-		text-align: left;
-	}
-	#photography br:lang(en) {
-		display: none;
+		margin: 0px 0;
 	}
 }
 
 #programming {
 	--padding: 0;
 	display: flex;
-	padding-top: 20vh;
 	flex-direction: column;
 	justify-content: center;
 }
@@ -323,10 +333,9 @@ section .content p,
 
 #design {
 	--padding: 1.25em;
-	min-height: 68vh;
+	margin-bottom: 160px;
 }
 #design p + p {
-	margin-top: 6em;
 }
 @media (max-width: 600px) {
 	#design p {
