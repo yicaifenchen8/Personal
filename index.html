@@ -16,16 +16,13 @@
     <meta property="og:description" content="笑笑（Smile Smile）的个人网站主页。我是一个自学者，爱好旅行、摄影、设计和编程。">
     <meta property="og:type" content="webpage"/>
 
+    <link rel="stylesheet" type="text/css" href="css/normalize.css" />
+    <link rel="stylesheet" type="text/css" href="css/style.css"/>
+
     <link rel="stylesheet" href="style.css" type="text/css"/>
+
 </head>
 <body>
-
-<!--music-->
-<div id="music_p" style="overflow: auto;display: flex;flex-direction: column;position: fixed;top: 100px;left: 0;z-index: 1001;height: 100%">
-    <div style="padding: 5px;font-weight: bolder">MUSIC</div>
-    <div id="music" style="max-width: 400px;writing-mode:vertical-lr;align-self: center;display: flex;align-items: center;text-align: center;white-space: nowrap"></div>
-    <img width="50px" data-src="image/music.gif">
-</div>
 
 <!--tab-->
 <section id="tab_p" style="overflow: auto;position: fixed;top: 0px;left: 0px;font-size: 16px;padding: 20px;background:gainsboro;
@@ -34,6 +31,13 @@ display: flex;align-items: center;z-index: 1000;">
         欢迎！
     </div>
 </section>
+
+<!--music-->
+<div id="music_p" style="overflow: auto;display: flex;flex-direction: column;position: fixed;top: 100px;left: 0;z-index: 1001;height: 100%">
+    <div style="padding: 5px;font-weight: bolder">MUSIC</div>
+    <div id="music" style="max-width: 400px;writing-mode:vertical-lr;align-self: center;display: flex;align-items: center;text-align: center;white-space: nowrap"></div>
+    <img width="50px" data-src="image/music.gif">
+</div>
 
 <!--blog-->
 <section id="intro" style="margin-top: 50px;">
@@ -48,13 +52,33 @@ display: flex;align-items: center;z-index: 1000;">
         <h2 id="subheading">爱好音乐、旅行、摄影、设计和编程。</h2>
 
         <div id="slice-left" class="slice left">
-
         </div>
         <div id="slice-right" class="slice right"></div>
     </header>
 </section>
 
-<section id="content" style="margin-top: 50px;">
+<!--video-->
+<div id="video" class="blocks" style="margin-top: 100px;">
+</div>
+<script src="js/jquery-1.11.0.min.js" type="text/javascript"></script>
+<script type="text/javascript">
+    // Below code only for demo purposes
+    // You can remove the `&.hover,` class from the CSS
+    // if you don't need it
+    $(document).ready(function() {
+        var count = 0;
+        var blocks = $(".block");
+
+        var testEffect = setInterval(function() {
+            $(blocks[count - 1]).removeClass("hover");
+            $(blocks[count]).addClass("hover");
+            count++;
+            if (count > 4) clearInterval(testEffect);
+        }, 800);
+    });
+</script>
+
+<section id="content" style="margin-top: 200px;">
     <p id="text-become-autodidact">作为自学者，我彻底脱离了常规教育体系。</p>
     <p id="text-learn-from">
         我没有在传统学校里上过学，<br/>只从大自然和互联网获取自己感兴趣的知识。

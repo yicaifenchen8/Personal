@@ -1,6 +1,7 @@
 // <script type="module" 时不能省略.js
 import blogs from "./config/blog.js";
 import musics from "./config/music.js";
+import videos from "./config/video.js";
 import tabs from "./config/tab.js";
 
 var left = document.getElementById('slice-left')
@@ -36,10 +37,25 @@ var music = document.getElementById('music')
 for (let e of musics) {
     let div =`
         <div style="margin: 0px;padding: 16px;border-bottom: 1px dotted #ddd;display: flex;align-items: center;">
-            <a class="blog" target="_blank" style="margin: 0px;padding: 0px;font-size: 16px;color: #4d4d4d;display: flex;align-items: center;" href="` + e.url + `">` + e.title + `</a>
+            <a target="_blank" style="margin: 0px;padding: 0px;font-size: 16px;color: #4d4d4d;display: flex;align-items: center;" href="` + e.url + `">` + e.title + `</a>
         </div>
     `
     music.innerHTML += div
+}
+
+//video
+var video = document.getElementById('video')
+for (let e of videos) {
+    let div =`
+        <div class="block" title="`+e.title+`">
+            <div class="overlay">
+                <a style="text-align: center" target="_blank" href="`+e.url+`"><img data-src="img/video-play-icon.png" /></a>
+            </div>
+            <img data-src="`+e.imgUrl+`"  />
+        </div> 
+    `
+    console.log(div)
+    video.innerHTML += div
 }
 
 //tab
