@@ -132,8 +132,10 @@ section .content p,
 .slice.left {
 	grid-area: ls;
 	background-position: left;
+	padding: 16px;
 }
 .slice.right {
+	padding: 16px;
 	grid-area: rs;
 	background-position: right;
 }
