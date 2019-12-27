@@ -49,7 +49,7 @@ for (let e of videos) {
     let div =`
         <div class="block" title="`+e.title+`">
             <div class="overlay">
-                <a style="text-align: center" target="_blank" href="`+e.url+`"><img data-src="img/video-play-icon.png" /></a>
+                <a style="text-align: center" target="_blank" href="`+e.url+`"><img data-src="img/v_play_icon.png" /></a>
             </div>
             <img data-src="`+e.imgUrl+`"  />
         </div> 
