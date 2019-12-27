@@ -1,22 +1,21 @@
 <!DOCTYPE html>
-<html lang="zh-cmn-Hans-CN">
+<html lang="en">
 <head>
     <title>笑笑 · Smile Smile 的个人网站主页</title>
-    <meta charset="utf-8"/>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="applicable-device" content="mobile">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
     <meta name="description" content="笑笑（Smile Smile）的个人网站主页。我是一个自学者，爱好旅行、摄影、设计和编程。"/>
     <meta property="og:title" content="笑笑 · Smile Smile 的个人网站主页">
     <meta property="og:description" content="笑笑（Smile Smile）的个人网站主页。我是一个自学者，爱好旅行、摄影、设计和编程。">
-    <meta property="og:image" content="https://v7.res.smilesmile.com/images/me.jpg">
-    <meta property="og:url" content="https://www.smilesmile.com">
     <meta property="og:type" content="webpage"/>
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:site" content="@wengtianxin">
-    <meta name="viewport" content="initial-scale=1.0, minimum-scale=1.0, viewport-fit=cover"/>
+
     <link rel="stylesheet" href="style.css" type="text/css"/>
-    <link rel="prefetch" href="https://v7.res.smilesmile.com/fonts/SourceHanSerifCN-SemiBold.woff2">
-    <link rel="prefetch" href="https://v7.res.smilesmile.com/images/me.jpg">
-    <script src="https://v7.res.smilesmile.com/vendors.js" defer></script>
-    <script src="https://v7.res.smilesmile.com/main.js" defer></script>
 </head>
 <body>
 <section id="intro">
@@ -30,6 +29,7 @@
         <div id="slice-right" class="slice right"></div>
     </header>
 </section>
+
 <section id="content">
     <p id="text-become-autodidact">作为自学者，我彻底脱离了常规教育体系。</p>
     <p id="text-learn-from">
@@ -47,14 +47,14 @@
         旅行，让我爱上摄影；<br/>摄影，让我更爱旅行。
     </p>
     <div id="group">
-        <img id="photo-a" src="https://v7.res.smilesmile.com/images/8b6df735.jpg"/>
-        <img id="photo-b" src="https://v7.res.smilesmile.com/images/f7e20fb5.jpg"/>
-        <img id="photo-c" src="https://v7.res.smilesmile.com/images/dc4a72be.jpg"/>
-        <img id="photo-d" src="https://v7.res.smilesmile.com/images/c76d0cd3.jpg"/>
-        <img id="photo-e" src="https://v7.res.smilesmile.com/images/1739332d.jpg"/>
-        <img id="photo-f" src="https://v7.res.smilesmile.com/images/99117f15.jpg"/>
-        <img id="photo-g" src="https://v7.res.smilesmile.com/images/dd84e443.jpg"/>
-        <img id="photo-h" src="https://v7.res.smilesmile.com/images/83b278df.jpg"/>
+        <img id="photo-a" src=""/>
+        <img id="photo-b" src=""/>
+        <img id="photo-c" src=""/>
+        <img id="photo-d" src=""/>
+        <img id="photo-e" src=""/>
+        <img id="photo-f" src=""/>
+        <img id="photo-g" src=""/>
+        <img id="photo-h" src=""/>
     </div>
 </section>
 <section id="programming">
@@ -62,7 +62,7 @@
         我从小就对新科技有着无尽的好奇心，<br/>因此一直在通过互联网自学编程。
     </p>
     <div id="nodes" onscroll="node.didScroll()">
-        <img id="node-scroll-button" src="images/arrow.svg" onclick="node.increment()"/>
+        <img id="node-scroll-button" src="" onclick="node.increment()"/>
         <svg xmlns="http://www.w3.org/2000/svg" width="1920" height="800">
             <g stroke="#979797" fill="none">
                 <path d="M212 453l-81-88m81 88l47-88-77-55"/>
@@ -439,14 +439,12 @@
     <p id="text-dot-connecting">我不断尝试把自己的所想所爱结合在一起，创造些有意思的东西。</p>
 </section>
 <center><img src="image/favor_code.jpg"></center>
+
 <footer>
     <br/>
     <p>Designed and developed by Smile Smile.</p>
     <p>Copyright © 2010-2019 smilesmile.com. All Rights Reserved.</p>
 </footer>
-<button id="switch-language" onclick="switchLanguage()">View in English</button>
-<p style="text-indent: -9999px;">
-    <script src="https://s96.cnzz.com/z_stat.php?id=3817169&web_id=3817169&async=1" async></script>
-</p>
 </body>
+<script type="module" src="./index.js"></script>
 </html>

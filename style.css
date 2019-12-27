@@ -2,16 +2,12 @@
 
 @font-face {
 	font-family: "plantc";
-	src: url("fonts/plantc.woff2") format("woff2");
 	font-weight: normal;
 	font-style: normal;
 }
 
 @font-face {
 	font-family: "Source Han Serif";
-	src:
-		url("fonts/SourceHanSerifCN-SemiBold.woff2") format("woff2"),
-		url("fonts/SourceHanSerifCN-SemiBold.ttf") format("truetype");
 	font-weight: normal;
 	font-style: normal;
 }
@@ -117,7 +113,6 @@ section .content p,
 .slice {
 	width: 100%;
 	height: 100%;
-	background-image: url("images/me.jpg");
 	background-size: cover;
 	box-shadow: 0 20px 90px 0 rgba(0, 0, 0, .08), 0 9px 30px 0 rgba(0, 0, 0, .1);
 }
@@ -327,7 +322,6 @@ section .content p,
 }
 .products .button::after {
 	content: " ";
-	background-image: url("images/chevron.svg");
 	position: absolute;
 	width: 12px;
 	height: 22px;
@@ -707,7 +701,7 @@ section .content p,
 	left: 0;
 	transform: scaleX(0);
 	transform-origin: bottom right;
-	
+
 	transition: transform .3s ease-in-out;
 }
 #talk p a:first-child::after {
@@ -904,4 +898,9 @@ footer p.weak {
 	border: none;
 	font-size: 12px;
 	cursor: pointer;
+}
+
+.blog{
+	padding: 10px;
+	color:red;
 }
