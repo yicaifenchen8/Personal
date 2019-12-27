@@ -85,8 +85,8 @@ section .content p,
 	grid-template-rows: 176px 55px minmax(max-content, 1fr) 35px 175px;
 	grid-template-areas:
 		". . . . rs"
-		"ls . . . rs"
-		"ls . h1 . rs"
+		"ls . . img rs"
+		"ls . h1 img rs"
 		"ls . h2 . rs"
 		"ls . h2 . .";
 	transform: translateY(-88px);
