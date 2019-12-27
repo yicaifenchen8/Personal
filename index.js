@@ -27,7 +27,7 @@ for (let i = 0; i < 8; i++) {
     e.setAttribute("data-src", "image/pic_" + (i + 1) + ".jpg")
 
     var a = e.parentNode
-    a.setAttribute("href", "image/pic_" + (i + 1) + ".jpg")
+    a.setAttribute("href", "image/pic_" + (i + 1) + "b.jpg")
     a.setAttribute("target", "_blank")
 }
 
