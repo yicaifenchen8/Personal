@@ -172,6 +172,13 @@ section .content p,
     }
 	#slice-right{
 	}
+	.slice.left {
+		margin-top: 16px;
+		padding: 0px;
+	}
+	.slice.right {
+		padding: 0px;
+	}
 	#content{
 		margin-top: 50px !important;
 	}
@@ -189,7 +196,7 @@ section .content p,
         padding: 10px;
 	}
 	#intro h2 {
-        padding: 10px;
+        padding: 0 10px;
 		grid-column-end: rs;
         margin-top: 10px;
         margin-bottom: 10px;
