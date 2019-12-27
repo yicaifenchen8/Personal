@@ -137,8 +137,9 @@ section .content p,
 
 @media (max-width: 900px) {
 	#intro header {
+		--size:100px;
 		grid-template-columns: 1fr;
-		grid-template-rows: 200px 80px 60px 1fr 1fr;
+		grid-template-rows: var(--size) 80px 60px 1fr 1fr;
 		grid-template-areas:
 			"img"
 			"h1"
@@ -164,7 +165,6 @@ section .content p,
         margin-bottom: 10px;
 	}
     #intro header img{
-        --size:200px;
         width: var(--size);
         height: var(--size);
         grid-area: img;
