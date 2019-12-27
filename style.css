@@ -903,3 +903,12 @@ footer p.weak {
 .blog{
     /*background: skyblue;*/
 }
+
+a:visited {
+	color:gray !important;
+}
+a:hover {
+	color:skyblue !important;
+}
+
+

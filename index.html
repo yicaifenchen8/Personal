@@ -19,7 +19,23 @@
     <link rel="stylesheet" href="style.css" type="text/css"/>
 </head>
 <body>
-<section id="intro">
+
+<!--music-->
+<section style="position: fixed;top: 100px;left: 0;">
+    <div style="padding: 5px;font-weight: bolder">MUSIC</div>
+    <div id="music" style="max-width: 400px;writing-mode:vertical-lr;align-self: center;display: flex;align-items: center;text-align: center;"></div>
+    <img width="50px" src="image/music.gif">
+</section>
+
+<!--tab-->
+<section style="position: fixed;top: 0px;left: 0px;font-size: 16px;padding: 20px;background:gainsboro;display: flex;align-items: center;justify-content: center;width: 100%;z-index: 1000;">
+    <div id="tab" style="align-self: center;display: flex;align-items: center;justify-content: center;">
+        欢迎！
+    </div>
+</section>
+
+<!--blog-->
+<section id="intro" style="margin-top: 50px;">
     <header>
         <img alt=""
              width="200" height="200"
@@ -29,8 +45,11 @@
             笑笑<br/>
             yicaifenchen8<br/>
         </h1>
-        <h2 id="subheading">爱好旅行、摄影、设计和编程。</h2>
-        <div id="slice-left" class="slice left"></div>
+        <h2 id="subheading">爱好音乐、旅行、摄影、设计和编程。</h2>
+
+        <div id="slice-left" class="slice left">
+
+        </div>
         <div id="slice-right" class="slice right"></div>
     </header>
 </section>
@@ -47,19 +66,20 @@
         <canvas id="globe"></canvas>
     </div>
 </section>
+
 <section id="photography">
     <p>
         旅行，让我爱上摄影；<br/>摄影，让我更爱旅行。
     </p>
     <div id="group">
-        <a href=""><img id="photo-a" src=""/></a>
-        <a href=""><img id="photo-b" src=""/></a>
-        <a href=""><img id="photo-c" src=""/></a>
-        <a href=""><img id="photo-d" src=""/></a>
-        <a href=""><img id="photo-e" src=""/></a>
-        <a href=""><img id="photo-f" src=""/></a>
-        <a href=""><img id="photo-g" src=""/></a>
-        <a href=""><img id="photo-h" src=""/></a>
+        <a><img id="photo-a" src=""/></a>
+        <a><img id="photo-b" src=""/></a>
+        <a><img id="photo-c" src=""/></a>
+        <a><img id="photo-d" src=""/></a>
+        <a><img id="photo-e" src=""/></a>
+        <a><img id="photo-f" src=""/></a>
+        <a><img id="photo-g" src=""/></a>
+        <a><img id="photo-h" src=""/></a>
     </div>
 </section>
 <section id="programming">
