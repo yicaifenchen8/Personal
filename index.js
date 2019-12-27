@@ -4,6 +4,7 @@ import datas from "./config/blog.js";
 var left = document.getElementById('slice-left')
 var right = document.getElementById('slice-right')
 
+//blog
 for (let e of datas) {
     // 不能这样写<div id="cs"/>
     // css style 能生效
@@ -18,6 +19,7 @@ for (let e of datas) {
         right.innerHTML += div
 }
 
+//pic
 for (let i = 0; i < 8; i++) {
     var e = document.getElementById('photo-' + String.fromCharCode('a'.charCodeAt(0)+i))
     e.setAttribute("src", "image/pic_" + (i + 1) + ".jpg")
