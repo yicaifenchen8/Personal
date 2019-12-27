@@ -17,3 +17,12 @@ for (let e of datas) {
     else
         right.innerHTML += div
 }
+
+for (let i = 0; i < 8; i++) {
+    var e = document.getElementById('photo-' + String.fromCharCode('a'.charCodeAt(0)+i))
+    e.setAttribute("src", "image/pic_" + (i + 1) + ".jpg")
+
+    var a = e.parentNode
+    a.setAttribute("href", "image/pic_" + (i + 1) + ".jpg")
+    a.setAttribute("target", "_blank")
+}
