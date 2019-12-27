@@ -21,15 +21,15 @@
 <body>
 
 <!--music-->
-<section style="position: fixed;top: 100px;left: 0;">
+<div id="music_p" style="position: fixed;top: 100px;left: 0;">
     <div style="padding: 5px;font-weight: bolder">MUSIC</div>
     <div id="music" style="max-width: 400px;writing-mode:vertical-lr;align-self: center;display: flex;align-items: center;text-align: center;"></div>
     <img width="50px" src="image/music.gif">
-</section>
+</div>
 
 <!--tab-->
 <section style="position: fixed;top: 0px;left: 0px;font-size: 16px;padding: 20px;background:gainsboro;display: flex;align-items: center;justify-content: center;width: 100%;z-index: 1000;">
-    <div id="tab" style="align-self: center;display: flex;align-items: center;justify-content: center;">
+    <div id="tab" style="align-self: center;display: flex;flex-wrap:wrap;align-items: center;justify-content: center;">
         欢迎！
     </div>
 </section>
@@ -37,9 +37,8 @@
 <!--blog-->
 <section id="intro" style="margin-top: 50px;">
     <header>
-        <img alt=""
-             width="200" height="200"
-             style="border-radius: 3px;grid-area: img;margin-left: -200px;"
+        <img id="avatar" alt=""
+             style="border-radius: 3px;"
              src="image/avatar.jpg"/>
         <h1 id="heading" style="line-height: normal">
             笑笑<br/>
@@ -463,13 +462,16 @@
     <p id="text-design">我喜欢设计各种东西，从家居到平面、网页、视觉识别、用户体验等等。</p>
     <p id="text-dot-connecting">我不断尝试把自己的所想所爱结合在一起，创造些有意思的东西。</p>
 </section>
-<center><img src="image/favor_code.jpg"></center>
-
-<footer>
-    <br/>
-    <p>Designed and developed by Smile Smile.</p>
-    <p>Copyright © 2010-2019 smilesmile.com. All Rights Reserved.</p>
-</footer>
+<section>
+    <center><img style="max-width: 100%" src="image/favor_code.jpg"></center>
+</section>
+<section>
+    <footer>
+        <br/>
+        <p>Designed and developed by Smile Smile.</p>
+        <p>Copyright © 2010-2019 smilesmile.com. All Rights Reserved.</p>
+    </footer>
+</section>
 </body>
 <script type="module" src="./index.js"></script>
 </html>

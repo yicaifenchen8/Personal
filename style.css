@@ -1,3 +1,7 @@
+*{
+    box-sizing: border-box;
+}
+
 @charset "utf-8";
 
 @font-face {
@@ -91,6 +95,12 @@ section .content p,
 		"ls . h2 . .";
 	transform: translateY(-88px);
 }
+#intro header img{
+    width: 200px;
+    height: 200px;
+    grid-area: img;
+    margin-left: -200px;
+}
 
 #intro h1 {
 	grid-area: h1;
@@ -127,19 +137,39 @@ section .content p,
 
 @media (max-width: 900px) {
 	#intro header {
-		grid-template-columns: 50px 110px 1fr 150px;
-		grid-template-rows: 190px 16px 100px 180px 120px;
+		grid-template-columns: 1fr;
+		grid-template-rows: 200px 86px 40px 1fr 1fr;
 		grid-template-areas:
-			". h1 h1 h1"
-			". . . rs"
-			". h2 h2 rs"
-			"ls ls . rs"
-			"ls ls . .";
+			"img"
+			"h1"
+			"h2"
+			"ls"
+			"rs";
 		transform: translateY(10vh);
 	}
-	#intro h2 {
-		grid-column-end: rs;
+    section {
+        box-shadow: 0 20px 90px 0 rgba(0, 0, 0, .08), 0 9px 30px 0 rgba(0, 0, 0, .1);
+        margin-left: 50px;
+    }
+    #music_p {
+        top:0px !important;
+    }
+	#intro h1 {
+        padding: 10px;
 	}
+	#intro h2 {
+        padding: 10px;
+		grid-column-end: rs;
+        margin-top: 10px;
+        margin-bottom: 10px;
+	}
+    #intro header img{
+        --size:200px;
+        width: var(--size);
+        height: var(--size);
+        grid-area: img;
+        margin-left: calc(100vw - var(--size) - 50px - 16px);
+    }
 }
 
 #content {
@@ -910,5 +940,6 @@ a:visited {
 a:hover {
 	color:skyblue !important;
 }
+
 
 
