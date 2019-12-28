@@ -13,7 +13,7 @@ for (let e of blogs) {
     // css style 能生效
     let div =`
         <div style="margin: 0px;padding: 16px;border-bottom: 1px dotted #ddd;display: flex;align-items: center;">
-            <a class="blog" target="_blank" style="margin: 0px;padding: 0px;font-size: 16px;color: #4d4d4d;display: flex;align-items: center;" href="` + e.url + `">` + e.title + `</a>
+            <a class="blog" target="_blank" style="margin: 0px;padding: 0px;font-size: 16px;color: #4d4d4d;display: flex;align-items: center;" href="${e.url}">${e.title}</a>
         </div>
     `
     if (blogs.indexOf(e)<blogs.length/2)
@@ -25,10 +25,10 @@ for (let e of blogs) {
 //pic
 for (let i = 0; i < 8; i++) {
     var e = document.getElementById('photo-' + String.fromCharCode('a'.charCodeAt(0)+i))
-    e.setAttribute("data-src", "image/pic_" + (i + 1) + ".jpg")
+    e.setAttribute("data-src", `image/pic_${i + 1}.jpg`)
 
     var a = e.parentNode
-    a.setAttribute("href", "image/pic_" + (i + 1) + "b.jpg")
+    a.setAttribute("href", `image/pic_${i + 1}b.jpg`)
     a.setAttribute("target", "_blank")
 }
 
@@ -37,7 +37,7 @@ var music = document.getElementById('music')
 for (let e of musics) {
     let div =`
         <div style="margin: 0px;padding: 16px;border-bottom: 1px dotted #ddd;display: flex;align-items: center;">
-            <a target="_blank" style="margin: 0px;padding: 0px;font-size: 16px;color: #4d4d4d;display: flex;align-items: center;" href="` + e.url + `">` + e.title + `</a>
+            <a target="_blank" style="margin: 0px;padding: 0px;font-size: 16px;color: #4d4d4d;display: flex;align-items: center;" href="${e.url}">${e.title}</a>
         </div>
     `
     music.innerHTML += div
@@ -47,14 +47,15 @@ for (let e of musics) {
 var video = document.getElementById('video')
 for (let e of videos) {
     let div =`
-        <div class="block" title="`+e.title+`">
-            <div class="overlay">
-                <a style="text-align: center" target="_blank" href="`+e.url+`"><img data-src="img/v_play_icon.png" /></a>
-            </div>
-            <img data-src="`+e.imgUrl+`"  />
-        </div> 
+        <div class="block" title="${e.title}">
+            <a style="text-align: center" target="_blank" href="${e.url}">
+                <div class="overlay">
+                    <img data-src="img/v_play_icon.png" />
+                </div>
+            </a>
+            <img data-src="${e.imgUrl}"/>
+        </div>
     `
-    console.log(div)
     video.innerHTML += div
 }
 
@@ -62,8 +63,10 @@ for (let e of videos) {
 var tab = document.getElementById('tab')
 for (let e of tabs) {
     let div =`
-        <div style="margin: 0px;padding: 0px 16px;border-right: 1px dotted #ddd;display: flex;align-items: center;">
-            <a class="blog" target="_blank" style="margin: 0px;padding: 0px;font-size: 16px;color: #4d4d4d;display: flex;align-items: center;" href="` + e.url + `">` + e.title + `</a>
+        <div style="margin: 0px;padding: 0px 16px;border-right: 1px dotted #ccc;display: flex;align-items: center;">
+            <a class="blog" target="_blank" 
+                style="margin: 0px;padding: 0px;font-size: 16px;color: #4d4d4d;display: flex;align-items: center;" 
+                href="${e.url}">${e.title}</a>
         </div>
     `
     tab.innerHTML += div

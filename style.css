@@ -142,10 +142,16 @@ section .content p,
 
 :root {
 	--margin-left:0px;
+	--music_p-width:50px;
 }
 
 #tab_p {
 	width: calc(100% - var(--margin-left));
+	/*box-shadow: 0 20px 90px 0 rgba(0, 0, 0, .08), 0 9px 30px 0 rgba(0, 0, 0, .1);*/
+}
+
+#music_p {
+	width: var(--music_p-width);
 }
 
 @media (max-width: 900px) {
@@ -166,7 +172,7 @@ section .content p,
 		/*box-shadow: 0 20px 90px 0 rgba(0, 0, 0, .08), 0 9px 30px 0 rgba(0, 0, 0, .1);*/
     }
     section {
-		--margin-left:64px;
+		--margin-left:var(--music_p-width);
         margin-left: var(--margin-left);
 		/*box-shadow: 0 20px 90px 0 rgba(0, 0, 0, .08), 0 9px 30px 0 rgba(0, 0, 0, .1);*/
     }
@@ -185,12 +191,16 @@ section .content p,
 	#tab_p,body .blocks,#photography {
 		justify-content: left;
 	}
+	#tab_p{
+		padding: 12px !important;
+	}
 	body .blocks{
 		margin-top: 100px !important;
 	}
     #music_p {
 		box-shadow: 0 20px 90px 0 rgba(0, 0, 0, .08), 0 9px 30px 0 rgba(0, 0, 0, .1);
-        top:0px !important;
+		top: 0 !important;
+        padding-top:16px !important;
     }
 	#intro h1 {
         padding: 10px;
