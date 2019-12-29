@@ -27,6 +27,10 @@ var datas = [
 		title:'西海情歌',
 		url:'http://acsing2.kugou.com/sing7/web/share/c0-dataOTY0NDI5MTMy-sign5fbbfb7c2b1a4e42d6c886a2148ae255?u=ODA4ODQxNDM=&us=8723c5a4c1e13a9adc5cf5ced9ccc19b'
 	},
+	{
+		title:'更多',
+		url:'html/more.html?type=pictrue'
+	},
 ]
 
 export default datas

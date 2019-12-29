@@ -142,7 +142,7 @@ section .content p,
 
 :root {
 	--margin-left:0px;
-	--music_p-width:50px;
+	--music_p-width:64px;
 }
 
 #tab_p {
@@ -190,9 +190,6 @@ section .content p,
 	}
 	#tab_p,body .blocks,#photography {
 		justify-content: left;
-	}
-	#tab_p{
-		padding: 12px !important;
 	}
 	body .blocks{
 		margin-top: 100px !important;

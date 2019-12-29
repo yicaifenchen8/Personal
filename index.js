@@ -25,10 +25,10 @@ for (let e of blogs) {
 //pic
 for (let i = 0; i < 8; i++) {
     var e = document.getElementById('photo-' + String.fromCharCode('a'.charCodeAt(0)+i))
-    e.setAttribute("data-src", `image/pic_${i + 1}.jpg`)
+    e.setAttribute("data-src", `image/pic/pic_${i + 1}.jpg`)
 
     var a = e.parentNode
-    a.setAttribute("href", `image/pic_${i + 1}b.jpg`)
+    a.setAttribute("href", `image/pic/pic_${i + 1}b.jpg`)
     a.setAttribute("target", "_blank")
 }
 
@@ -50,7 +50,7 @@ for (let e of videos) {
         <div class="block" title="${e.title}">
             <a style="text-align: center" target="_blank" href="${e.url}">
                 <div class="overlay">
-                    <img data-src="img/v_play_icon.png" />
+                    <img data-src="image/video/v_play_icon.png" />
                 </div>
             </a>
             <img data-src="${e.imgUrl}"/>

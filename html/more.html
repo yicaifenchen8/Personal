@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>笑笑 · Smile Smile 的个人网站主页</title>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="applicable-device" content="mobile">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+    <meta name="description" content="笑笑（Smile Smile）的个人网站主页。我是一个程序员，爱好音乐、旅行、摄影、设计和编程。"/>
+    <meta property="og:title" content="笑笑 · Smile Smile 的个人网站主页">
+    <meta property="og:description" content="笑笑（Smile Smile）的个人网站主页。我是一个程序员，爱好音乐、旅行、摄影、设计和编程。">
+    <meta property="og:type" content="webpage"/>
+
+    <link type="text/css" rel="stylesheet" href="../css/swipper.css">
+
+</head>
+<body>
+<div id="type" style="position: fixed;top:10px;right:10px;border: solid 10px lightgray;color:dimgray;padding: 10px;margin: 10px;font-weight:bolder;font-size:30px;writing-mode: vertical-rl">PICTRUE</div>
+<section class="pc-banner" style="height: 100vh;display: flex;align-items: center;justify-content: center">
+    <div class="swiper-container">
+        <div id="cs" class="swiper-wrapper">
+
+        </div>
+        <div class="button">
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-button-next"></div>
+        </div>
+    </div>
+</section>
+<script type="text/javascript" src="../js/swiper.min.js"></script>
+<script type="module">
+    import music from '../config/music.js'
+
+    function load(type){
+        document.getElementById('type').innerHTML = type.toUpperCase()
+
+        let cs = document.getElementById('cs')
+        if(type == 'pictrue'){
+            for (let i = 0; i < 10; i++) {
+                let div = `<div class="swiper-slide">
+                           <a href="#" style="display: flex;flex-direction: row;">
+                                <img style="height: 600px;width: 50%;object-fit: cover;" src="../image/pic/pic_${i + 1}b.jpg">
+                                <img style="height: 600px;width: 50%;object-fit: cover;opacity: .5" src="../image/pic/pic_${i + 1}b.jpg">
+                           </a>
+                           <div class="layer-mask"></div>
+                       </div>`
+                cs.innerHTML += div
+            }
+        } else {
+            for (let e of music) {
+                let div = `<div class="swiper-slide">
+                           <a href="#" style="display: flex;flex-direction: row;">
+                                <img style="height: 600px;width: 50%;object-fit: cover;" src="${e.url}">
+                                <img style="height: 600px;width: 50%;object-fit: cover;opacity: .5" src="${e.url}">
+                           </a>
+                           <div class="layer-mask"></div>
+                       </div>`
+                cs.innerHTML += div
+            }
+        }
+    }
+
+    window.onload = function () {
+        load(location.href.split('=')[1])
+
+        var swiper = new Swiper('.swiper-container', {
+            autoplay: false,
+            speed: 1000,
+            autoplayDisableOnInteraction: false,
+            loop: true,
+            centeredSlides: true,
+            slidesPerView: 2,
+            pagination: '.swiper-pagination',
+            paginationClickable: true,
+            prevButton: '.swiper-button-prev',
+            nextButton: '.swiper-button-next',
+            onInit: function (swiper) {
+                swiper.slides[2].className = "swiper-slide swiper-slide-active";
+            },
+            breakpoints: {
+                668: {
+                    slidesPerView: 1,
+                }
+            }
+        });
+
+    }
+
+
+</script>
+</body>
+
+</html>
