@@ -19,7 +19,7 @@
 
 </head>
 <body>
-<div id="type" style="position: fixed;top:10px;right:10px;border: solid 10px lightgray;color:dimgray;padding: 10px;margin: 10px;font-weight:bolder;font-size:30px;writing-mode: vertical-rl">PICTRUE</div>
+<div id="type" style="position: fixed;z-index: 1000;top:10px;right:10px;border: solid 10px lightgray;color:dimgray;padding: 10px;margin: 10px;font-weight:bolder;font-size:30px;writing-mode: vertical-rl">PICTRUE</div>
 <section class="pc-banner" style="height: 100vh;display: flex;align-items: center;justify-content: center">
     <div class="swiper-container">
         <div id="cs" class="swiper-wrapper">
@@ -34,15 +34,17 @@
 <script type="text/javascript" src="../js/swiper.min.js"></script>
 <script type="module">
     import music from '../config/music.js'
+    import video from '../config/video.js'
+    import blog from '../config/blog.js'
 
-    function load(type){
+    function load(type) {
         document.getElementById('type').innerHTML = type.toUpperCase()
 
         let cs = document.getElementById('cs')
-        if(type == 'pictrue'){
+        if (type == 'pictrue') {
             for (let i = 0; i < 10; i++) {
                 let div = `<div class="swiper-slide">
-                           <a href="#" style="display: flex;flex-direction: row;">
+                           <a href="../image/pic/pic_${i + 1}b.jpg" target="_blank"  style="display: flex;flex-direction: row;">
                                 <img style="height: 600px;width: 50%;object-fit: cover;" src="../image/pic/pic_${i + 1}b.jpg">
                                 <img style="height: 600px;width: 50%;object-fit: cover;opacity: .5" src="../image/pic/pic_${i + 1}b.jpg">
                            </a>
@@ -51,21 +53,71 @@
                 cs.innerHTML += div
             }
         } else {
-            for (let e of music) {
-                let div = `<div class="swiper-slide">
-                           <a href="#" style="display: flex;flex-direction: row;">
-                                <img style="height: 600px;width: 50%;object-fit: cover;" src="${e.url}">
-                                <img style="height: 600px;width: 50%;object-fit: cover;opacity: .5" src="${e.url}">
+            if(type == 'music'){
+                for (let e of music) {
+                    let div = `<div class="swiper-slide">
+                           <a href="${e.url}" target="_blank" style="display: flex;flex-direction: row;">
+                                <div style="height: 600px;display: flex;">
+                                    <img style="position:absolute;height: 600px;width: 100%;object-fit: cover;" src="${e.imgUrl}">
+                                    <img style="position: absolute;align-self: center;object-fit: scale-down;" src="../image/video/v_play_icon.png">
+                                    <div class="title">${e.title}</div>
                            </a>
                            <div class="layer-mask"></div>
                        </div>`
-                cs.innerHTML += div
+                    cs.innerHTML += div
+                }
+            } else if(type == 'video'){
+                for (let e of video) {
+                    let div = `<div class="swiper-slide">
+                           <a href="${e.url}" target="_blank"  style="display: flex;flex-direction: row;">
+                                <div style="min-height: 600px;display: flex;">
+                                    <img style="position:absolute;height: 600px;width: 100%;object-fit: cover;" src="${'../'+e.imgUrl}">
+                                    <img style="position: absolute;align-self: center;object-fit: scale-down;" src="../image/video/v_play_icon.png">
+                                    <div class="title">${e.title}</div>
+                                </div>
+                           </a>
+                           <div class="layer-mask"></div>
+                       </div>`
+                    cs.innerHTML += div
+                }
+            } else if(type == 'blog'){
+                let left = "";
+                let right = "";
+                for (let i = 0; i < blog.length; i++) {
+                    let e = blog[i]
+                    let item =`
+                        <div style="padding: 16px;border-bottom: 1px dotted #ddd;display: flex;align-items: center;">
+                            <a class="blog" target="_blank" style="margin: 0px;padding: 0px;font-size: 16px;color: #4d4d4d;display: flex;align-items: center;" href="${e.url}">${e.title}</a>
+                        </div>
+                    `
+                    if (i%2==0)
+                        left += item
+                    else
+                        right += item
+
+                    if(i!=0 && (i%18 == 0 || i==blog.length-1)){
+                        let div = `<div class="swiper-slide" style="background: white">
+                           <div style="display: flex;flex-direction: row;flex-wrap: nowrap;padding: 16px;">
+                                <div style="height:600px;width: 50%;display: flex;flex-direction: column;padding: 30px">${left}</div>
+                                <div style="height:600px;width: 50%;display: flex;flex-direction: column;padding: 30px">${right}</div>
+                                <div class="title">${e.title.split(' ')[0]}</div>
+                           </div>
+                           <div class="layer-mask"></div>
+                        </div>`
+                        cs.innerHTML += div
+
+                        left = ""
+                        right = ""
+                    }
+                }
             }
         }
     }
 
     window.onload = function () {
-        load(location.href.split('=')[1])
+        let ps = location.href.split('?')[1].split('&')
+        let type = ps[0].split('=')[1]
+        load(type)
 
         var swiper = new Swiper('.swiper-container', {
             autoplay: false,
@@ -81,6 +133,9 @@
             onInit: function (swiper) {
                 swiper.slides[2].className = "swiper-slide swiper-slide-active";
             },
+            onClickIndex: (i) => {
+
+            },
             breakpoints: {
                 668: {
                     slidesPerView: 1,
@@ -93,5 +148,51 @@
 
 </script>
 </body>
+
+<style type="text/css">
+    .swiper-container {
+        overflow: visible !important;
+    }
+
+    .title{
+        position: fixed !important;
+        padding: 20px 10px 10px 10px;
+        margin-left: -40px;
+        letter-spacing: 8px;
+        background: rgba(0,0,0,.5);
+        margin-bottom: -40px;
+        bottom: 0;left: 0; z-index: 1000;
+        border: solid 10px rgba(0,0,0,.5);
+        color:white;
+        font-weight:bolder;font-size:30px;writing-mode: vertical-rl
+    }
+
+    /*包含以下四种的链接*/
+    a {
+        text-decoration: none;
+    }
+    /*正常的未被访问过的链接*/
+    a:link {
+        text-decoration: none;
+    }
+    /*已经访问过的链接*/
+    a:visited {
+        text-decoration: none;
+    }
+    /*鼠标划过(停留)的链接*/
+    a:hover {
+        text-decoration: none;
+    }
+    /* 正在点击的链接*/
+    a:active {
+        text-decoration: none;
+    }
+    a:visited {
+        color:gray !important;
+    }
+    a:hover {
+        color:skyblue !important;
+    }
+</style>
 
 </html>
