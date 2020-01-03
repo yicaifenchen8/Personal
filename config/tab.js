@@ -15,6 +15,10 @@ var datas = [
         title:'音乐',
         url:'html/more.html?type=music'
     },
+    {
+        title:'游记',
+        url:'html/more.html?type=travel'
+    },
 
 ]
 

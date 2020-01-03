@@ -36,6 +36,7 @@
     import music from '../config/music.js'
     import video from '../config/video.js'
     import blog from '../config/blog.js'
+    import travel from '../config/travel.js'
 
     function load(type) {
         let isPhone = window.outerWidth<720
@@ -55,7 +56,19 @@
                 cs.innerHTML += div
             }
         } else {
-            if(type == 'music'){
+            if(type == 'travel'){
+                for (let e of travel) {
+                    let div = `<div class="swiper-slide">
+                           <a href="${e.url}" target="_blank" style="display: flex;flex-direction: row;">
+                                <div style="height: 600px;display: flex;">
+                                    <img style="position:absolute;height: 600px;width: 100%;object-fit: cover;" data-src="${e.imgUrl}">
+                                    <div class="title" style="${isPhone?'margin: 10px;':''}">${e.title}</div>
+                           </a>
+                           <div class="layer-mask"></div>
+                       </div>`
+                    cs.innerHTML += div
+                }
+            } else if(type == 'music'){
                 for (let e of music) {
                     let div = `<div class="swiper-slide">
                            <a href="${e.url}" target="_blank" style="display: flex;flex-direction: row;">
