@@ -74,8 +74,8 @@
                 for (let e of music) {
                     let div = `<div class="swiper-slide">
                            <a href="${e.url}" target="_blank" style="display: flex;flex-direction: row;padding: 0px">
-                                <div style="height: ${h};width: 100vw;display: flex;">
-                                    <img style="position:absolute;height: ${h};width: 100vw;object-fit: cover;" data-src="${e.imgUrl}">
+                                <div style="height: ${h};width: 100%;display: flex;">
+                                    <img style="position:absolute;height: ${h};width: 100%;object-fit: cover;" data-src="${e.imgUrl}">
                                     <img class="play" data-src="../image/video/v_play_icon.png">
                                     <div class="title" style="${isPhone ? 'margin: 10px;' : ''}">${e.title}</div>
                            </a>
@@ -87,8 +87,8 @@
                 for (let e of video) {
                     let div = `<div class="swiper-slide">
                            <a href="${e.url}" target="_blank"  style="display: flex;flex-direction: row;padding: 0px">
-                                <div style="min-height: ${h};width: 100vw;display: flex;">
-                                    <img style="position:absolute;height: ${h};width: 100vw;object-fit: cover;" data-src="${'../' + e.imgUrl}">
+                                <div style="min-height: ${h};width: 100%;display: flex;">
+                                    <img style="position:absolute;height: ${h};width: 100%;object-fit: cover;" data-src="${'../' + e.imgUrl}">
                                     <img class="play" data-src="../image/video/v_play_icon.png">
                                     <div class="title" style="${isPhone ? 'margin: 10px;' : ''};">${e.title}</div>
                                 </div>
@@ -113,7 +113,7 @@
                         right += item
 
 
-                    let N = isPhone ? 9 : 18
+                    let N = isPhone ? 8 : 16
                     let all = ``
                     if (isPhone) {
                         all = `<div style="height:${h};width: 100%;display: flex;flex-direction: column;padding: 0px">${left + right}</div>`
@@ -194,19 +194,26 @@
     }
     .title {
         position: fixed !important;
-        padding: 20px 10px 10px 10px;
-        margin-left: -40px;
-        letter-spacing: 8px;
-        background: rgba(0, 0, 0, .5);
-        margin-bottom: -40px;
-        bottom: 0;
-        left: 0;
-        z-index: 1000;
-        border: solid 10px rgba(0, 0, 0, .5);
-        color: white;
-        font-weight: bolder;
-        font-size: 30px;
-        writing-mode: vertical-rl
+        padding: 20px 10px 10px 10px!important;
+        margin-left: -40px!important;
+        letter-spacing: 8px!important;
+        background: rgba(0, 0, 0, .5)!important;
+        margin-bottom: -40px!important;
+        bottom: 0!important;
+        left: 0!important;
+        z-index: 1000!important;
+        border: solid 10px rgba(0, 0, 0, .5)!important;
+        color: white!important;
+        font-weight: bolder!important;
+        font-size: 30px!important;
+        writing-mode: vertical-rl!important;
+    }
+    .play {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        align-self: center;
+        object-fit: scale-down;
     }
 
     /*包含以下四种的链接*/
@@ -245,23 +252,27 @@
     .swiper-button-prev, .swiper-button-next {
         padding: 8px!important;
     }
+
     *{
         box-sizing: border-box!important;
     }
-    .swiper-container, .swiper-container-horizontal, .swiper-wrapper {
-        margin: 0px!important;
-        padding: 0px!important;
-        border: none!important;
-    }
-    .swiper-slide-active, .swiper-slide-duplicate-active {
-        -webkit-transform: scale(1.0) !important;
-         transform: scale(1.0) !important;
-    }
-    .swiper-wrapper *{
-        margin: 0px!important;
-    }
 
     @media (max-width: 720px) {
+        .swiper-container, .swiper-container-horizontal, .swiper-wrapper {
+            margin: 0px!important;
+            padding: 0px!important;
+            border: none!important;
+        }
+
+        .swiper-wrapper *{
+            margin: 0px!important;
+        }
+
+        .swiper-slide-active, .swiper-slide-duplicate-active {
+            -webkit-transform: scale(1.0) !important;
+            transform: scale(1.0) !important;
+        }
+
         .swiper-button-prev {
             left: 20px !important;
         }
