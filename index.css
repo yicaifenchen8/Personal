@@ -185,6 +185,9 @@ section .content p,
 	.slice.right {
 		padding: 0px;
 	}
+    .tab{
+        padding: 16px 16px!important;
+    }
 	#content{
 		margin-top: 50px !important;
 	}

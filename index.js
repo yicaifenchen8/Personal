@@ -36,8 +36,8 @@ for (let i = 0; i < 8; i++) {
 var music = document.getElementById('music')
 for (let e of musics) {
     let div =`
-        <div style="margin: 0px;padding: 16px;border-bottom: 1px dotted #ddd;display: flex;align-items: center;">
-            <a target="_blank" style="margin: 0px;padding: 0px;font-size: 16px;color: #4d4d4d;display: flex;align-items: center;" href="${e.url}">${e.title}</a>
+        <div style="margin: 0px;padding: 0px;border-bottom: 1px dotted #ddd;display: flex;align-items: center;">
+            <a target="_blank" style="margin: 0px;padding: 16px;font-size: 16px;color: #4d4d4d;display: flex;align-items: center;" href="${e.url}">${e.title}</a>
         </div>
     `
     music.innerHTML += div
@@ -63,9 +63,9 @@ for (let e of videos) {
 var tab = document.getElementById('tab')
 for (let e of tabs) {
     let div =`
-        <div style="margin: 0px;padding: 0px 16px;border-right: 1px dotted #ccc;display: flex;align-items: center;">
-            <a class="blog" target="_blank" 
-                style="margin: 0px;padding: 0px;font-size: 16px;color: #4d4d4d;display: flex;align-items: center;" 
+        <div style="margin: 0px;padding: 0px 0px;border-right: 1px dotted #ccc;display: flex;align-items: center;">
+            <a class="tab" target="_blank" 
+                style="margin: 0px;padding: 16px 32px;font-size: 16px;color: #4d4d4d;display: flex;align-items: center;" 
                 href="${e.url}">${e.title}</a>
         </div>
     `

@@ -4,8 +4,8 @@
     <title>笑笑 · Smile Smile 的个人网站主页</title>
 
     <meta charset="utf-8">
-    <meta name="viewport"
-          content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no, viewport-fit=cover" />
+<!--    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">-->
     <meta name="format-detection" content="telephone=no">
     <meta name="applicable-device" content="mobile">
     <meta name="apple-mobile-web-app-capable" content="yes">
@@ -25,10 +25,10 @@
 <body>
 
 <!--tab-->
-<section id="tab_p" style="overflow: auto;position: fixed;top: 0px;left: 0px;font-size: 16px;padding: 20px;background:gainsboro;
+<section id="tab_p" style="overflow: auto;position: fixed;top: 0px;left: 0px;font-size: 16px;padding: 0px;background:gainsboro;
 display: flex;align-items: center;z-index: 1000;">
-    <div id="tab" style="display: flex;white-space: nowrap;justify-content: center">
-        欢迎！
+    <div id="tab" style="display: flex;padding:0px;white-space: nowrap;justify-content: center">
+        <div style="padding: 16px">欢迎！</div>
     </div>
 </section>
 
@@ -36,7 +36,7 @@ display: flex;align-items: center;z-index: 1000;">
 <div id="music_p" style="overflow: auto;display: flex;flex-direction: column;align-items:center;position: fixed;top: 100px;left: 0;z-index: 1001;height: 100%">
     <div style="padding: 5px;font-weight: bold;">MUSIC</div>
     <div id="music" style="writing-mode:vertical-lr;align-self: center;display: flex;align-items: center;text-align: center;white-space: nowrap"></div>
-    <img width="100%" data-src="image/music.gif">
+    <img width="100%" style="display: none" data-src="image/music.gif">
 </div>
 
 <!--blog-->
@@ -88,7 +88,7 @@ display: flex;align-items: center;z-index: 1000;">
 </section>
 <section id="programming">
     <p>
-        我从小就对新科技有着无尽的好奇心，<br/>因此一直在通过互联网自学编程。
+        我从小就对新科技有着无尽的好奇心，<br/>因此一直在通过互联网学习编程。
     </p>
     <div id="nodes">
         <img id="node-scroll-button" onclick="node.increment()"/>
@@ -481,6 +481,9 @@ display: flex;align-items: center;z-index: 1000;">
 <script type="module" src="./index.js" async></script>
 
 <style scoped lang="css">
+    section{
+        color: #808080 !important;
+    }
 </style>
 
 </html>
