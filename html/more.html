@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>笑笑 · Smile Smile 的个人网站主页</title>
+    <title>笑笑 · Smile 的个人网站主页</title>
 
     <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no, viewport-fit=cover" />
     <meta charset="utf-8">
@@ -11,9 +11,9 @@
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
 
-    <meta name="description" content="笑笑（Smile Smile）的个人网站主页。我是一个程序员，爱好音乐、旅行、摄影、设计和编程。"/>
-    <meta property="og:title" content="笑笑 · Smile Smile 的个人网站主页">
-    <meta property="og:description" content="笑笑（Smile Smile）的个人网站主页。我是一个程序员，爱好音乐、旅行、摄影、设计和编程。">
+    <meta name="description" content="笑笑（Smile）的个人网站主页。我是一个程序员，爱好音乐、旅行、摄影、设计和编程。"/>
+    <meta property="og:title" content="笑笑 · Smile 的个人网站主页">
+    <meta property="og:description" content="笑笑（Smile）的个人网站主页。我是一个程序员，爱好音乐、旅行、摄影、设计和编程。">
     <meta property="og:type" content="webpage"/>
 
     <link type="text/css" rel="stylesheet" href="../css/swipper.css">
@@ -34,19 +34,19 @@
 </section>
 <script type="text/javascript" src="../js/swiper.min.js"></script>
 <script type="module">
-    import music from '../config/music.js'
-    import video from '../config/video.js'
-    import blog from '../config/blog.js'
-    import travel from '../config/travel.js'
+    let more = JSON.parse(localStorage.getItem('more'))
+    let datas = more.datas
+    let type = more.type
+    let isPhone = window.outerWidth < 720
 
     function load(type) {
-        let isPhone = window.outerWidth < 720
+
         let h = isPhone ? '100vh' : '600px'
 
         document.getElementById('type').innerHTML = type.toUpperCase()
 
         let cs = document.getElementById('cs')
-        if (type == 'pictrue') {
+        if (type == 'pictrue') {//后期图片多时可以把两张图换成9或12张小图----其他类型也一样-----qq相册的样式
             for (let i = 0; i < 10; i++) {
                 let div = `<div class="swiper-slide">
                            <a href="../image/pic/pic_${i + 1}b.jpg" target="_blank"  style="display: flex;flex-direction: row;padding: 0px">
@@ -59,7 +59,7 @@
             }
         } else {
             if (type == 'travel') {
-                for (let e of travel) {
+                for (let e of datas) {
                     let div = `<div class="swiper-slide">
                            <a href="${e.url}" target="_blank" style="display: flex;flex-direction: row;padding: 0px;">
                                 <div style="height: ${h};display: flex;">
@@ -71,7 +71,7 @@
                     cs.innerHTML += div
                 }
             } else if (type == 'music') {
-                for (let e of music) {
+                for (let e of datas) {
                     let div = `<div class="swiper-slide">
                            <a href="${e.url}" target="_blank" style="display: flex;flex-direction: row;padding: 0px">
                                 <div style="height: ${h};width: 100%;display: flex;">
@@ -84,7 +84,7 @@
                     cs.innerHTML += div
                 }
             } else if (type == 'video') {
-                for (let e of video) {
+                for (let e of datas) {
                     let div = `<div class="swiper-slide">
                            <a href="${e.url}" target="_blank"  style="display: flex;flex-direction: row;padding: 0px">
                                 <div style="min-height: ${h};width: 100%;display: flex;">
@@ -100,8 +100,8 @@
             } else if (type == 'blog') {
                 let left = "";
                 let right = "";
-                for (let i = 0; i < blog.length; i++) {
-                    let e = blog[i]
+                for (let i = 0; i < datas.length; i++) {
+                    let e = datas[i]
                     let item = `
                         <div style="padding: 16px;border-bottom: 1px dotted #ddd;display: flex;align-items: center;">
                             <a class="blog" target="_blank" style="margin: 0px;padding: 0px;font-size: 16px;color: #4d4d4d;display: flex;align-items: center;" href="${e.url}">${e.title}</a>
@@ -123,11 +123,11 @@
                                 <div style="height:${h};width: 50%;display: flex;flex-direction: column;padding: 30px">${right}</div>`
                     }
 
-                    if (i != 0 && (i % N == 0 || i == blog.length - 1)) {
+                    if (i != 0 && (i % N == 0 || i == datas.length - 1)) {
                         let div = `<div class="swiper-slide" style="background: white">
                            <div style="display: flex;flex-direction: row;flex-wrap: nowrap;padding: ${isPhone ? 0 : 16}px;">
                                 ${all}
-                                <div class="title" style="${isPhone ? 'margin: 10px;' : ''}">${e.title.split(' ')[0]}</div>
+                                <div class="title" style="${isPhone ? 'margin: 10px;' : ''}">${e.title.split(e.title.indexOf('——')!=-1?'——':' ')[0]}</div>
                            </div>
                            <div class="layer-mask"></div>
                         </div>`
@@ -142,8 +142,6 @@
     }
 
     window.onload = function () {
-        let ps = location.href.split('?')[1].split('&')
-        let type = ps[0].split('=')[1]
         load(type)
 
         //load img
@@ -170,10 +168,10 @@
             prevButton: '.swiper-button-prev',
             nextButton: '.swiper-button-next',
             onInit: function (swiper) {
-                swiper.slides[2].className = "swiper-slide swiper-slide-active";
+                swiper.slides[2] && (swiper.slides[2].className = "swiper-slide swiper-slide-active");
             },
-            onClickIndex: (i) => {
-
+            onTouchStart:(e,a)=>{
+                // console.log(e, a)
             },
             breakpoints: {
                 668: {

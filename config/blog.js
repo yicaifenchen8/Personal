@@ -4,7 +4,7 @@ var datas = [
 		url:'https://blog.csdn.net/yicaifenchen8/article/details/103705430'
 	},
 	{
-		title:'SpringBoot学习——HelloWorld（入门项目，用户登录，REST，JPA）',
+		title:'SpringBoot——HelloWorld（入门项目，用户登录，REST，JPA）',
 		url:'https://blog.csdn.net/yicaifenchen8/article/details/103704261'
 	},
 	{
@@ -60,7 +60,7 @@ var datas = [
 		url:'https://blog.csdn.net/yicaifenchen8/article/details/46521495'
 	},
 	{
-		title:'andriod 三星手机拍照各种奇葩问题',
+		title:'android 三星手机拍照各种奇葩问题',
 		url:'https://blog.csdn.net/yicaifenchen8/article/details/46521241'
 	},
 	{

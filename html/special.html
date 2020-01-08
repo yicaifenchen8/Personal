@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no, viewport-fit=cover"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7"/>
+    <title>笑笑 · Smile 的个人网站主页</title>
+    <style>
+        html, body {
+            border: none;
+            overflow: hidden;
+            height: 100%;
+        }
+
+        body {
+            background: url(../image/bubbles/BG.jpg) no-repeat;
+            background-size: cover;
+        }
+    </style>
+</head>
+
+<body>
+<script src="../js/Bubbles.js"></script>
+<script type="module">
+    import datas from '../config/special.js'
+    window.onload = () => {
+        CreateBubble(datas);
+    }
+</script>
+</body>
+</html>
