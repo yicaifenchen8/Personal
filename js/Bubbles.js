@@ -15,7 +15,7 @@
 
     _IE6_ && document.execCommand("BackgroundImageCache", false, true);
 
-    let isPhone = window.outerWidth < 720
+    let isPhone = window.innerWidth < 720
     let scale = isPhone?0.3:1
 
     //
@@ -233,7 +233,6 @@
     }
 
     function format(str, width, fill){
-        str += ''
         if(str.length<width)
             return format(fill+str+fill, width, fill)
         else
@@ -263,7 +262,8 @@
         {
             var div = document.createElement("div");
             var sty = div.style;
-            div.innerHTML = `-${format(e.title,16,'-')}>`
+            // div.innerHTML = `>—${format(e.title,4,'—')}—>`
+            div.innerHTML = `>———${e.title}———>`
             div.style.color =  `rgba(${256},${256},${256},${0.5})`
             div.style.fontSize = 40*scale+'px'
             div.style.display = 'flex'

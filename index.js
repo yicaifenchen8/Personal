@@ -4,9 +4,9 @@ import musics from "./config/music.js";
 import videos from "./config/video.js";
 import tabs from "./config/tab.js";
 import travels from "./config/travel.js";
-let pictrues = []
+import pictrues from "./config/pictrue.js";
 
-let isPhone = window.outerWidth < 720
+let isPhone = window.innerWidth < 720
 
 var left = document.getElementById('slice-left')
 var right = document.getElementById('slice-right')
@@ -19,7 +19,7 @@ for (let e of blogs) {
     // css style 能生效
     let div =`
         <div style="margin: 0px;padding: 16px;border-bottom: 1px dotted #ddd;display: flex;align-items: center;">
-            <a class="blog" target="_blank" style="margin: 0px;padding: 0px;font-size: 16px;color: #4d4d4d;display: flex;align-items: center;" href="${e.url}">${e.title}</a>
+            <a class="blog" target="_blank" style="width: 100%;margin: 0px;padding: 0px;font-size: 16px;color: #4d4d4d;display: flex;align-items: center;" href="${e.url}">${e.title}</a>
         </div>
     `
     if (blogs.indexOf(e)<blogs.length/2)
@@ -28,13 +28,14 @@ for (let e of blogs) {
         right.innerHTML += div
 }
 
-//pic
+//pictrues
 for (let i = 0; i < 8; i++) {
+    var d = pictrues[i]
     var e = document.getElementById('photo-' + String.fromCharCode('a'.charCodeAt(0)+i))
-    e.setAttribute("data-src", `image/pic/pic_${i + 1}.jpg`)
+    e.setAttribute("data-src", d.imgUrl)
 
     var a = e.parentNode
-    a.setAttribute("href", `image/pic/pic_${i + 1}b.jpg`)
+    a.setAttribute("href", d.url)
     a.setAttribute("target", "_blank")
 }
 
@@ -71,7 +72,7 @@ window.clicks_tabs = []
 for (let e of tabs) {
     let i = tabs.indexOf(e)
     window.clicks_tabs[i] = ()=>{ //动态绑定事件 需要挂载到window对象上 不然找不到方法-----或者动态创建----或者根据id动态绑定xxx.onclick=（）=>{}
-        let type = e.url.split('=')[1]
+        let type = e.type
         let datas = eval(type+'s')
         localStorage.setItem('more', JSON.stringify({
             type,
@@ -95,7 +96,7 @@ for (let e of tabs) {
     var all = document.getElementById('all')
     var div = document.createElement("div");
     var sty = div.style;
-    div.innerHTML = `-----More---->`
+    div.innerHTML = `>——more——>`
 
     let ip = true
     let color = ip?150:100

@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>笑笑 · Smile 的个人网站主页</title>
+
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no, viewport-fit=cover"/>
+    <meta charset="utf-8">
+    <!--    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">-->
+    <meta name="format-detection" content="telephone=no">
+    <meta name="applicable-device" content="mobile">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+    <meta name="description" content="笑笑（Smile）的个人网站主页。我是一个程序员，爱好音乐、旅行、摄影、设计和编程。"/>
+    <meta property="og:title" content="笑笑 · Smile 的个人网站主页">
+    <meta property="og:description" content="笑笑（Smile）的个人网站主页。我是一个程序员，爱好音乐、旅行、摄影、设计和编程。">
+    <meta property="og:type" content="webpage"/>
+
+
+</head>
+<body style="margin: 0;padding: 0;">
+<div id="type" style="position: fixed;z-index: 1000;top:10px;right:10px;border: solid 10px lightgray;color:dimgray;padding: 10px;margin: 10px;font-weight:bolder;font-size:30px;writing-mode: vertical-rl">PICTRUE</div>
+<div id="mode" style="position: fixed;"></div>
+<section id="cs" style="width: 100vw;min-height: 100vh;display: flex;justify-content: center;align-items: flex-start"></section>
+<script type="module">
+    let more = JSON.parse(localStorage.getItem('more'))
+    let datas = more.datas
+    let type = more.type
+    let isPhone = window.innerWidth < 720 //屏幕宽 window.innerWidth
+
+    // e 结构
+    // e = {
+    //     type:'',
+    //     title:'',
+    //     imgUrl:'',
+    //     url:'',
+    //     des:''
+    // }
+
+    function load(type) {
+
+        let h = isPhone ? '100vh' : '600px'
+
+        document.getElementById('type').innerHTML = '「'+type.toUpperCase()+'」'
+
+        let cs = document.getElementById('cs')
+       {//后期图片多时可以把两张图换成9或12张小图----其他类型也一样-----qq相册的样式
+            let is = ``
+            let curType = ''
+            datas.forEach((e, i) => {
+                let space = isPhone ? 5 : 10
+                let N = isPhone ? 2 : 3
+                let W = isPhone ? 100 : 60
+                let size = `calc((${W}vw - ${N * 3 * space}px) / ${N})` //calc+模板+动态计算----不需要很精确可以直接用justify-content: space-between
+                let url = e.url.indexOf('http') != -1 ? e.url : `../${e.url}`
+                let imgUrl = e.imgUrl.indexOf('http') != -1 ? e.imgUrl : `../${e.imgUrl}`
+
+                let typeItem = (e.type && e.type != curType) ? `<span style=";display: flex;padding: ${space}px; width: 100%;">「${e.type}」</span> ` : ``
+                // let typeItem = (e.type && e.type != curType) ? `<span style=";display: flex;padding: ${space}px; width: 100%;">>—${e.type}—></span> ` : ``
+                curType = e.type
+
+                let playTop = `calc(((${W}vw - ${N * 3 * space}px) / ${N} - 120px) / 2)`
+                let playItem = type == 'music' || type == 'video' ? `<img class="play_" style="top:${playTop}" data-src="../image/video/v_play_icon.png">` : ``
+
+                let item = `<a href="${url}" target="_blank"
+                               style="position: relative;padding: 0px;width:${size};height:${size};margin:${space}px; display: flex;flex-direction: column;align-items: center; ">
+                                <img style="width:${size};height:${size}; border: rgba(1,1,1,0.1) solid 1px; object-fit: cover;" data-src="${imgUrl}">
+                                ${playItem}
+                                <span class="ellipsis" style="position: absolute;bottom: 0;width: 100%;padding:4px;text-align:center;background: rgba(0,0,0,0.5);color:white;">${e && e.title || ''}</span>
+                           </a>`
+                is += typeItem
+                is += item
+
+
+                if (i == datas.length - 1) {
+                    cs.innerHTML += `<div style="display: flex;flex-wrap: wrap;margin: ${space}px!important; width: ${W}vw;">${is}</div> `
+                    is = ``
+                }
+            })
+
+        }
+
+
+    }
+
+    function initMode() {
+        var all = document.getElementById('mode')
+        var div = document.createElement("div");
+        var sty = div.style;
+        div.innerHTML = `>——page——>`
+
+        let ip = true
+        let color = ip ? 150 : 100
+        div.style.color = `rgba(${color},${color},${color},${1})`
+        div.style.fontSize = isPhone ? '16px' : '30px'
+        div.style.display = 'flex'
+        div.style.alignItems = 'center'//alignItems和align-items效果一样
+        div.style.justifyContent = 'center'
+        div.style.wordSpacing = 'nowrap'
+        div.style.flexWrap = 'nowrap'
+        div.style.wordBreak = 'keep-all'
+        div.style.whiteSpace = 'nowrap'
+        let b = ip ? 256 : 0
+        div.style.background = `rgba(${b},${b},${b},${ip ? 0.9 : 0.1})`
+        let bs = ip ? 1 : 0
+        sty.border = `solid ${bs}px rgba(${0},${0},${0},${0.1})`
+        div.style.borderRadius = '1000px'
+        div.onclick = () => {
+            location.replace('more.html')
+        }
+        div.onmouseover = () => {
+            sty.cursor = 'pointer'
+            div.style.color = `rgba(${106},${106},${106},${0.5})`
+        }
+        div.onmouseout = () => {
+            sty.cursor = 'default'
+            div.style.color = `rgba(${106},${106},${106},${1})`
+        }
+        sty.position = "absolute";
+        let s = isPhone ? 60 : 120
+        sty.width = s + "px";
+        sty.height = s + "px";
+
+        all.appendChild(div)
+    }
+
+    window.onload = function () {
+        load(type)
+        initMode()
+
+        //load img
+        var imgs = document.getElementsByTagName('img')
+        for (let img of imgs) {
+            let src = img.getAttribute('data-src')
+            if (!src) continue
+            let i = new Image();
+            i.src = src
+            i.onload = () => {
+                img.src = i.src
+            }
+        }
+    }
+
+
+</script>
+</body>
+
+<style type="text/css">
+
+
+    /*包含以下四种的链接*/
+    a, a:link, a:visited, a:hover, a:active {
+        text-decoration: none;
+    }
+
+
+    a:visited {
+        color: gray !important;
+    }
+
+    a:hover {
+        color: skyblue !important;
+    }
+
+    a {
+        width: 100%;
+    }
+
+    * {
+        box-sizing: border-box !important;
+    }
+
+    #mode {
+        bottom: 200px;
+        right: 250px;
+        z-index: 10000;
+        display: flex;
+    }
+
+    body {
+        font-family: "Microsoft YaHei";
+    }
+
+    .title {
+        position: fixed !important;
+        padding: 20px 10px 10px 10px !important;
+        margin-left: -40px !important;
+        letter-spacing: 8px !important;
+        background: rgba(0, 0, 0, .5) !important;
+        margin-bottom: -40px !important;
+        bottom: 0 !important;
+        left: 0 !important;
+        z-index: 1000 !important;
+        border: solid 10px rgba(0, 0, 0, .5) !important;
+        color: white !important;
+        font-weight: bolder !important;
+        font-size: 30px !important;
+        writing-mode: vertical-rl !important;
+    }
+
+    .ellipsis {
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+    }
+
+    .play_ {
+        width: 120px;
+        height: 120px;
+        position: absolute;
+        align-self: center;
+        object-fit: scale-down;
+    }
+
+    @media (max-width: 720px) {
+        .play_ {
+            width: 100px;
+            height: 100px;
+            position: absolute;
+            align-self: center;
+            object-fit: scale-down;
+        }
+
+        #mode {
+            bottom: 80px;
+            right: 100px;
+        }
+
+        #type {
+            letter-spacing: 2px !important;
+            right: 0 !important;
+            top: 0 !important;
+            margin: 0px !important;
+            border: none !important;
+            background: rgba(0, 0, 0, .5) !important;
+            color: white !important;
+            padding: 4px !important;
+            font-size: 20px !important;
+        }
+
+        .title {
+            letter-spacing: 2px !important;
+            left: 0 !important;
+            bottom: 0 !important;
+            overflow: hidden !important;
+            margin: 0px !important;
+            border: none !important;
+            background: rgba(0, 0, 0, .5) !important;
+            color: white !important;
+            padding: 4px !important;
+            font-size: 20px !important;
+        }
+
+
+    }
+</style>
+
+</html>

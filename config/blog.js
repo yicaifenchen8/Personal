@@ -89,4 +89,29 @@ var datas = [
 	},
 ]
 
+//自动分组----其他模块自己初始化时配置type
+datas.forEach(e=>{
+    let sk = e.title.indexOf('——')!=-1?'——':' '
+    let type = e.title.split(sk)[0]
+    e.type = type[0].toUpperCase()+  type.substr(1).toLowerCase()
+})
+
+datas.sort((a,b)=>a.type.localeCompare(b.type))
+
+//自动放入图片
+let is = ['image/bubbles/BG.jpg', 'image/avatar.jpg','image/good.jpg','image/pic/pic_12.jpg']
+datas.forEach((e,i)=>{
+    e.imgUrl = is[i%4]
+})
+
+// 按字母顺序排序字符串中的字符。
+// 使用 split('') 分割字符串，通过 localeCompare() 排序字符串 Array.sort() ，使用 join('') 进行重组。
+//
+// JavaScript 代码:
+//     const sortCharactersInString = str =>
+//         str
+//             .split('')
+//             .sort((a, b) => a.localeCompare(b))
+//             .join('');
+
 export default datas

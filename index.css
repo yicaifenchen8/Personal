@@ -225,7 +225,7 @@ section .content p,
 	}
     #all{
         bottom: 80px!important;
-        right: 90px!important;
+        right: 100px!important;
     }
 }
 
@@ -987,7 +987,7 @@ a:hover {
 }
 
 #all{
-    bottom: 200px;right: 200px;z-index: 10000;display: flex;
+    bottom: 200px;right: 250px;z-index: 10000;display: flex;
 }
 
 
