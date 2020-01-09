@@ -10,6 +10,7 @@ var datas = [
 
 //动态插入一些
 for (let i = 11; i >= 0; i--){
+    if(i == 0) continue
     datas.push({
         title:`img_` + i,
         url:`image/pic/pic_${i + 1}b.jpg`,
