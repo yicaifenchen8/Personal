@@ -47,6 +47,10 @@
        {//后期图片多时可以把两张图换成9或12张小图----其他类型也一样-----qq相册的样式
             let is = ``
             let curType = ''
+
+            let fsize = isPhone ? '16px' : (6 + window.innerWidth /100)+ 'px'
+            let fpad = isPhone ? '10px' : (0 + window.innerWidth /100)+ 'px'
+
             datas.forEach((e, i) => {
                 let space = isPhone ? 5 : 10
                 let N = isPhone ? 2 : 3
@@ -55,7 +59,7 @@
                 let url = e.url.indexOf('http') != -1 ? e.url : `../${e.url}`
                 let imgUrl = e.imgUrl.indexOf('http') != -1 ? e.imgUrl : `../${e.imgUrl}`
 
-                let typeItem = (e.type && e.type != curType) ? `<span style=";display: flex;padding: ${space}px; width: 100%;">「${e.type}」</span> ` : ``
+                let typeItem = (e.type && e.type != curType) ? `<span style="font-size: ${fsize};display: flex;padding: ${space}px; width: 100%;">「${e.type}」</span> ` : ``
                 // let typeItem = (e.type && e.type != curType) ? `<span style=";display: flex;padding: ${space}px; width: 100%;">>—${e.type}—></span> ` : ``
                 curType = e.type
 
@@ -66,7 +70,7 @@
                                style="position: relative;padding: 0px;width:${size};height:${size};margin:${space}px; display: flex;flex-direction: column;align-items: center; ">
                                 <img style="width:${size};height:${size}; border: rgba(1,1,1,0.1) solid 1px; object-fit: cover;" data-src="${imgUrl}">
                                 ${playItem}
-                                <span class="ellipsis" style="position: absolute;bottom: 0;width: 100%;padding:4px;text-align:center;background: rgba(0,0,0,0.5);color:white;">${e && e.title || ''}</span>
+                                <span class="ellipsis" style="font-size: ${fsize};position: absolute;bottom: 0;width: 100%;padding:calc(${fpad} / 2) ${fpad};text-align:center;background: rgba(0,0,0,0.5);color:white;">${e && e.title || ''}</span>
                            </a>`
                 is += typeItem
                 is += item
