@@ -1,9 +1,5 @@
 var datas = [
-	{
-		title:'休闲益智游戏平台',
-		url:'https://v.douyin.com/VAsKoK/',
-		imgUrl:'image/video/v_game.jpg'
-	},
+
 	{
 		title:'嵩山少林',
 		url:'https://v.douyin.com/VS9DCn/',
@@ -24,7 +20,30 @@ var datas = [
 		url:'https://v.douyin.com/VA6oDa/',
 		imgUrl:'image/video/v_star.jpg'
 	},
+	{
+		title:'休闲益智游戏平台',
+		url:'https://v.douyin.com/VAsKoK/',
+		imgUrl:'image/video/v_game.jpg'
+	},
+	{
+		title:'笑傲江湖',
+		url:'https://v.douyin.com/b6bvtR/',
+		imgUrl:'image/video/v_xajh.jpg'
+	},
+	{
+		title:'骚气十足',
+		url:'https://v.douyin.com/b6HE6y/',
+		imgUrl:'image/video/v_sqsz.jpg'
+	},
+	{
+		title:'活力无限',
+		url:'https://v.douyin.com/b6956j/',
+		imgUrl:'image/video/v_hlwx.jpg'
+	},
+
 
 ]
+
+datas = datas.reverse()
 
 export default datas
