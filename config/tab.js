@@ -20,7 +20,7 @@ var datas = [
         type:'music'
     },
     {
-        title:'游记',
+        title:'摄影',
         url:`html/more_grid.html`,
         type:'travel'
     },
